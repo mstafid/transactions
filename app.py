@@ -14,6 +14,7 @@ st.set_page_config(
 
 # Fungsi untuk menambahkan CSS kustom
 def local_css(file_name):
+    """Loads local CSS file for styling."""
     try:
         with open(file_name) as f:
             st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -21,7 +22,7 @@ def local_css(file_name):
         st.warning(f"File {file_name} not found. Please check the file path.")
 
 # Panggil fungsi CSS dengan path yang benar
-local_css("style.css")  # Sesuaikan path jika diperlukan
+local_css("style.css")  # Make sure style.css is in the same directory or provide correct path
 
 # Memuat model yang disimpan
 try:
@@ -46,6 +47,7 @@ label_encoder_receiver.fit(df['Receiver UPI ID'])
 
 # Fungsi untuk memperluas LabelEncoder dengan label baru
 def extend_label_encoder(label_encoder, new_label):
+    """Extend LabelEncoder with new labels."""
     if new_label not in label_encoder.classes_:
         # Perluas label encoder dengan label baru
         new_classes = np.append(label_encoder.classes_, new_label)
@@ -53,6 +55,7 @@ def extend_label_encoder(label_encoder, new_label):
 
 # Fungsi prediksi menggunakan model yang disimpan
 def predict(sender_upi_id, receiver_upi_id, amount_inr):
+    """Predict transaction status using the loaded model."""
     # Periksa dan tambahkan label baru jika perlu
     extend_label_encoder(label_encoder_sender, sender_upi_id)
     extend_label_encoder(label_encoder_receiver, receiver_upi_id)
@@ -69,7 +72,6 @@ def predict(sender_upi_id, receiver_upi_id, amount_inr):
 
 # Membuat antarmuka Streamlit
 st.title("Prediksi Status Transaksi UPI")
-st.image("https://images.pexels.com/photos/5650026/pexels-photo-5650026.jpeg?auto=compress&cs=tinysrgb&w=600.png", use_column_width=True)  # Ganti URL dengan URL gambar yang relevan
 
 col1, col2 = st.columns(2)
 
