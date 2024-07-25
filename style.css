@@ -1,17 +1,22 @@
 /* style.css */
 body {
     background-image: url('https://images.pexels.com/photos/5650026/pexels-photo-5650026.jpeg?auto=compress&cs=tinysrgb&w=600.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover; /* Mengubah ukuran gambar agar menutupi seluruh layar */
+    background-position: center center; /* Menyelaraskan gambar di tengah */
+    background-repeat: no-repeat; /* Menghindari pengulangan gambar */
     color: white; /* Menyesuaikan warna teks agar terlihat di atas gambar */
     font-family: 'Arial', sans-serif;
+    height: 100vh; /* Mengatur tinggi elemen body agar menutupi seluruh viewport */
+    margin: 0; /* Menghilangkan margin default */
 }
 
 .stApp {
-    background-color: rgba(0, 0, 0, 0.5); /* Memberikan efek gelap pada latar belakang untuk meningkatkan keterbacaan teks */
+    background-color: rgba(0, 0, 0, 0.6); /* Memberikan efek gelap pada latar belakang untuk meningkatkan keterbacaan teks */
     padding: 20px;
     border-radius: 10px;
+    max-width: 900px; /* Mengatur lebar maksimal konten */
+    margin: auto; /* Menyelaraskan konten ke tengah */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan untuk efek visual */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,6 +48,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 8px;
     border: 1px solid #dfe6e9;
     padding: 10px;
+    width: 100%; /* Memastikan input mengambil lebar penuh */
+    box-sizing: border-box; /* Memastikan padding tidak mempengaruhi lebar elemen */
 }
 
 .stSidebar {
