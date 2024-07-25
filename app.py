@@ -4,6 +4,21 @@ import numpy as np
 import joblib
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 
+# Mengatur tema dan konfigurasi halaman
+st.set_page_config(
+    page_title="Prediksi Status Transaksi UPI",
+    page_icon="💸",
+    layout="centered",
+    initial_sidebar_state="expanded",
+)
+
+# Fungsi untuk menambahkan CSS kustom
+def local_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+local_css("style.css")
+
 # Memuat model yang disimpan
 try:
     best_model = joblib.load('best_model.pkl')
@@ -13,7 +28,6 @@ except Exception as e:
 
 # Memuat dataset untuk mendapatkan informasi prapemrosesan
 df = pd.read_csv('transactions.csv')
-
 
 # Menyederhanakan fitur numerik
 scaler = StandardScaler()
@@ -51,16 +65,31 @@ def predict(sender_upi_id, receiver_upi_id, amount_inr):
 
 # Membuat antarmuka Streamlit
 st.title("Prediksi Status Transaksi UPI")
-sender_upi_id = st.text_input("Sender UPI ID:")
-receiver_upi_id = st.text_input("Receiver UPI ID:")
-amount_inr = st.number_input("Amount (INR):", min_value=0.0, step=0.01)
+st.image("https://images.pexels.com/photos/5650026/pexels-photo-5650026.jpeg?auto=compress&cs=tinysrgb&w=600.png", use_column_width=True)  # Ganti URL dengan URL gambar yang relevan
+
+col1, col2 = st.columns(2)
+
+with col1:
+    sender_upi_id = st.text_input("Sender UPI ID:")
+    receiver_upi_id = st.text_input("Receiver UPI ID:")
+
+with col2:
+    amount_inr = st.number_input("Amount (INR):", min_value=0.0, step=0.01)
+
+st.markdown("---")  # Garis pemisah
 
 if st.button("Prediksi"):
     try:
         result = predict(sender_upi_id, receiver_upi_id, amount_inr)
         if result == 1:
+            st.balloons()
             st.success("Transaksi Sukses")
         else:
+            st.snow()
             st.error("Transaksi Gagal")
     except Exception as e:
         st.error(f"Error during prediction: {e}")
+
+# Sidebar tambahan
+st.sidebar.title("Informasi Tambahan")
+st.sidebar.info("Gunakan aplikasi ini untuk memprediksi status transaksi UPI.")
