@@ -1,17 +1,22 @@
 /* style.css */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f6;
+    background-image: url('https://images.pexels.com/photos/5650026/pexels-photo-5650026.jpeg?auto=compress&cs=tinysrgb&w=600.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* Menyesuaikan warna teks agar terlihat di atas gambar */
+    font-family: 'Arial', sans-serif;
 }
 
-h1 {
-    color: #6c5ce7;
-    text-align: center;
+.stApp {
+    background-color: rgba(0, 0, 0, 0.5); /* Memberikan efek gelap pada latar belakang untuk meningkatkan keterbacaan teks */
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.stTextInput>div>label {
-    font-weight: bold;
-    color: #2c3e50;
+h1, h2, h3, h4, h5, h6 {
+    color: #FFD700; /* Warna emas untuk judul */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .stButton>button {
@@ -19,18 +24,33 @@ h1 {
     color: #ffffff;
     font-weight: bold;
     border-radius: 8px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .stButton>button:hover {
     background-color: #5a4a9f;
 }
 
-.stNumberInput input {
-    border-radius: 8px;
-    border: 1px solid #dfe6e9;
+.stTextInput>div>label, .stNumberInput>div>label {
+    font-weight: bold;
+    color: white;
 }
 
-.stTextInput input {
+.stTextInput input, .stNumberInput input {
     border-radius: 8px;
     border: 1px solid #dfe6e9;
+    padding: 10px;
+}
+
+.stSidebar {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparansi untuk sidebar */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.stSidebar h1, .stSidebar h2, .stSidebar h3, .stSidebar h4, .stSidebar h5, .stSidebar h6 {
+    color: #2c3e50;
 }
