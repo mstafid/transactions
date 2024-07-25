@@ -1,0 +1,36 @@
+/* style.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f6;
+}
+
+h1 {
+    color: #6c5ce7;
+    text-align: center;
+}
+
+.stTextInput>div>label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.stButton>button {
+    background-color: #6c5ce7;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.stButton>button:hover {
+    background-color: #5a4a9f;
+}
+
+.stNumberInput input {
+    border-radius: 8px;
+    border: 1px solid #dfe6e9;
+}
+
+.stTextInput input {
+    border-radius: 8px;
+    border: 1px solid #dfe6e9;
+}
