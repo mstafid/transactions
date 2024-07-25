@@ -52,12 +52,21 @@ h1, h2, h3, h4, h5, h6 {
     box-sizing: border-box; /* Memastikan padding tidak mempengaruhi lebar elemen */
 }
 
-.stSidebar {
-    background-color: rgba(255, 255, 255, 0.8); /* Transparansi untuk sidebar */
+.information-box {
+    background-color: rgba(255, 255, 255, 0.8); /* Transparansi untuk informasi tambahan */
     padding: 20px;
     border-radius: 10px;
+    color: #2c3e50;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan untuk informasi tambahan */
+    margin-top: 30px; /* Ruang atas antara informasi tambahan dan elemen lainnya */
 }
 
-.stSidebar h1, .stSidebar h2, .stSidebar h3, .stSidebar h4, .stSidebar h5, .stSidebar h6 {
-    color: #2c3e50;
+.information-box h2 {
+    font-weight: bold;
+    color: #6c5ce7; /* Warna untuk judul informasi tambahan */
+}
+
+.information-box p {
+    font-size: 16px;
+    line-height: 1.5;
 }
