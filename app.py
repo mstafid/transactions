@@ -69,7 +69,7 @@ def predict(sender_upi_id, receiver_upi_id, amount_inr):
 
 # Membuat antarmuka Streamlit
 st.title("Prediksi Status Transaksi UPI")
-st.image("https://example.com/path/to/image.png", use_column_width=True)  # Ganti URL dengan URL gambar yang relevan
+st.image("https://images.pexels.com/photos/5650026/pexels-photo-5650026.jpeg?auto=compress&cs=tinysrgb&w=600.png", use_column_width=True)  # Ganti URL dengan URL gambar yang relevan
 
 col1, col2 = st.columns(2)
 
