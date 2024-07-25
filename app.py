@@ -14,10 +14,14 @@ st.set_page_config(
 
 # Fungsi untuk menambahkan CSS kustom
 def local_css(file_name):
-    with open(file_name) as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    try:
+        with open(file_name) as f:
+            st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.warning(f"File {file_name} not found. Please check the file path.")
 
-local_css("style.css")
+# Panggil fungsi CSS dengan path yang benar
+local_css("style.css")  # Sesuaikan path jika diperlukan
 
 # Memuat model yang disimpan
 try:
@@ -65,7 +69,7 @@ def predict(sender_upi_id, receiver_upi_id, amount_inr):
 
 # Membuat antarmuka Streamlit
 st.title("Prediksi Status Transaksi UPI")
-st.image("https://images.pexels.com/photos/5650026/pexels-photo-5650026.jpeg?auto=compress&cs=tinysrgb&w=600.png", use_column_width=True)  # Ganti URL dengan URL gambar yang relevan
+st.image("https://example.com/path/to/image.png", use_column_width=True)  # Ganti URL dengan URL gambar yang relevan
 
 col1, col2 = st.columns(2)
 
